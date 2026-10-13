@@ -1,0 +1,32 @@
+% Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
+% SPDX-License-Identifier: MIT
+
+% \begin{table}[]
+% \renewcommand{\arraystretch}{0.7} 
+% \TABLE
+% {Relative errors of the CVaR estimators under different $(n_\alpha,n_\theta)$ settings (SAA method).\label{tab.SAA}}{\centering
+% % \resizebox{0.8\columnwidth}{!}{%
+% \begin{tabular}{cllll}\toprule
+% \diagbox{$n_\alpha$}{$n_\theta$} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{10} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{20} \\\hline
+% 10 & 0.0394 & 0.0313 & 0.0259 & 0.0260 \\\hline
+% 20 & 0.0369 & 0.0278 & 0.0209 & 0.0214 \\\bottomrule
+% \end{tabular}
+% % }
+% }{}
+% \end{table}
+
+\begin{table}[]
+% 建议去掉下面这行 0.7 的压缩，或者改为 1.2 让表格更舒展
+% \renewcommand{\arraystretch}{1.2} 
+\centering
+\TABLE
+{Relative errors of the CVaR estimators under different $(n_\alpha,n_\theta)$ settings (SAA method).\label{tab.SAA}}
+{\hspace{5mm}
+\begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}c|llll} 
+\toprule
+\diagbox{$n_\alpha$}{$n_\theta$} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{10} & \multicolumn{1}{c}{15} & \multicolumn{1}{c}{20} \\\hline
+10 & 0.0394 & 0.0313 & 0.0259 & 0.0260 \\\hline
+20 & 0.0369 & 0.0278 & 0.0209 & 0.0214 \\\bottomrule
+\end{tabular*}
+}{}
+\end{table}
