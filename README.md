@@ -1,3 +1,5 @@
+[![INFORMS Journal on Computing Logo](https://INFORMSJoC.github.io/logos/INFORMS_Journal_on_Computing_Header.jpg)](https://pubsonline.informs.org/journal/ijoc)
+
 # Statistical Inference in Conditional Value-at-Risk Optimization
 
 MATLAB programs and results accompanying the paper by Qixin Wang, Hao Cao,
@@ -9,8 +11,6 @@ and the [MIT license](LICENSE).
 Please cite the paper and its accompanying code:
 [paper DOI](https://doi.org/10.1287/ijoc.2025.1207) and
 [code DOI](https://doi.org/10.1287/ijoc.2025.1207.cd).
-These identifiers follow the journal's submission guide; this local package
-has not been released.
 
 ```bibtex
 @misc{WangCaoHu2026CVaRCode,
@@ -58,8 +58,7 @@ and `paired_n` is populated for the assigned RMSE series in cell 1.
 MATLAB requires Statistics and Machine Learning Toolbox; scripts using symbolic
 references also require Symbolic Math Toolbox. Copy the desired script to a working
 directory, select the experiment's budgets, repetition count, distribution and
-commented output blocks, then run that copy. Parameters and export choices are
-kept as supplied, apart from the documented CI scaling. For correlated noise, copy
+commented output blocks, then run that copy. For correlated noise, copy
 the entrypoint and its seven helper files together from `src/` to a working directory,
 configure `correlated_paper_settings.m`, and run the entrypoint. The helper files are
 `correlated_paper_settings.m`, `run_correlated_paper_tables.m`, `simulate_correlated_case.m`,
