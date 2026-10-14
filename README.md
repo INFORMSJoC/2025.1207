@@ -3,7 +3,7 @@
 # Statistical Inference in Conditional Value-at-Risk Optimization
 
 MATLAB programs and results accompanying the paper by Qixin Wang, Hao Cao,
-and Jian-Qiang Hu (JOC-2025-03-OA-1207.R3). See [AUTHORS](AUTHORS)
+and Jian-Qiang Hu (JOC-2025-03-OA-1207). See [AUTHORS](AUTHORS)
 and the [MIT license](LICENSE).
 
 ## Cite
@@ -45,7 +45,7 @@ The portfolio and lognormal scripts use a consistent `1/sqrt(2)` CI scale.
 The retained quadratic-model scripts are `CVaR_SA_duowei_ex5.m`,
 `CVaR_SA_duowei_ex5_jiaqiao_duibi.m`, and `CVaR_SA_huatuzhuanyong.m`.
 
-The original plotting notebook is [CVaR_SA_huatu.ipynb](scripts/CVaR_SA_huatu.ipynb).
+The original plotting notebook is [CVaR_SA_huatu.ipynb](<scripts/CVaR_SA_huatu.ipynb>).
 Its numeric arrays are also available in [convergence_rate_data.csv](results/rates/convergence_rate_data.csv).
 The active theta series in cells 1–2 corresponds to Figure EC.6(b).
 The CSV identifies each list by `cell`, `source_line` and `array_id`;
@@ -66,12 +66,6 @@ configure `correlated_paper_settings.m`, and run the entrypoint. The helper file
 and `export_correlated_matlab_excel.m`. Parallel Computing Toolbox is optional.
 
 For the active rate plot, open the notebook with Python/Jupyter and run cells 1–2
-using matplotlib, SciPy and seaborn. To plot another saved series, assign its array
-and matching iteration budgets in a working copy. Rates are fitted using natural
+using matplotlib, SciPy and seaborn. Rates are fitted using natural
 logarithms of the budgets and RMSEs.
 
-The TeX files contain reported table values and use the manuscript's LaTeX preamble
-and table macros. View them as text or include them in the manuscript to typeset them.
-
-Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu. All files are licensed under MIT; see [LICENSE](LICENSE).
-The CSV license notice is in [convergence_rate_data.csv.license](results/rates/convergence_rate_data.csv.license).
