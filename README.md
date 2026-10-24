@@ -6,6 +6,9 @@ MATLAB programs and results accompanying the paper by Qixin Wang, Hao Cao,
 and Jian-Qiang Hu (JOC-2025-03-OA-1207). See [AUTHORS](AUTHORS)
 and the [MIT license](LICENSE).
 
+All code in this repository was developed by the authors specifically for this
+project. No source code from other projects has been reused.
+
 ## Cite
 
 Please cite the paper and its accompanying code:
@@ -26,7 +29,7 @@ Please cite the paper and its accompanying code:
 
 ## Files and paper results
 
-`src/` contains 12 experiment scripts and 7 correlated-noise helper functions.
+`src/` contains 9 experiment scripts and 7 correlated-noise helper functions.
 The portfolio and lognormal scripts use a consistent `1/sqrt(2)` CI scale.
 `results/tables/` contains the manuscript's 12 TeX table fragments.
 
@@ -42,16 +45,25 @@ The portfolio and lognormal scripts use a consistent `1/sqrt(2)` CI scale.
 | Figure EC.6, Table EC.8: original queue | `CVaR_SA_duowei_queue.m` | `lognormal2.tex` |
 | Table EC.9: batching comparison | `CVaR_SA_tail_lognormal_batch_duibi.m` | `Coverage_batch.tex` |
 
-The retained quadratic-model scripts are `CVaR_SA_duowei_ex5.m`,
-`CVaR_SA_duowei_ex5_jiaqiao_duibi.m`, and `CVaR_SA_huatuzhuanyong.m`.
+`results/figures/` contains all 14 figure files used in the paper and its
+electronic companion:
 
-The original plotting notebook is [CVaR_SA_huatu.ipynb](<scripts/CVaR_SA_huatu.ipynb>).
-Its numeric arrays are also available in [convergence_rate_data.csv](results/rates/convergence_rate_data.csv).
-The active theta series in cells 1–2 corresponds to Figure EC.6(b).
-The CSV identifies each list by `cell`, `source_line` and `array_id`;
-`variable` and `state` distinguish assigned series from saved alternatives.
-`input_value` is the unlogged input, `stored_scale` records the source transformation,
-and `paired_n` is populated for the assigned RMSE series in cell 1.
+| Paper figure | Files in `results/figures/` |
+| --- | --- |
+| Figure 1: portfolio | `SA_jinrong.pdf`, `SA_jinrong_rate.png` |
+| Figure EC.1: multimodal | `SA_nonconvex.pdf`, `SA_nonconvex_rate.png` |
+| Figure EC.2: correlated noise trajectories | `SA_correlated_exp.pdf`, `SA_correlated_normal.pdf` |
+| Figure EC.3: correlated noise rates | `SA_correlated_rate_exp.png`, `SA_correlated_rate_normal.png` |
+| Figure EC.4: lognormal | `SA_lognormal.pdf`, `SA_lognormal_rate.png` |
+| Figure EC.5: regenerative queue | `SA_queue_correlated.pdf`, `SA_queue_correlated_rate.png` |
+| Figure EC.6: original queue | `SA_queue+CI.pdf`, `SA_queue_rate.png` |
+
+The plotting notebook is [CVaR_SA_huatu.ipynb](<scripts/CVaR_SA_huatu.ipynb>).
+The RMSE series for the notebook's six cases are also available in
+[convergence_rate_data.csv](results/rates/convergence_rate_data.csv), with columns
+`case`, `paper_figure`, `quantity`, `n` (budget), and `rmse` (unlogged values).
+The notebook redraws Figure 1(b), EC.1(b), EC.3(a,b), EC.5(b), and EC.6(b)
+from stored RMSE vectors. Figure EC.4(b) is included as the original manuscript image.
 
 ## Use
 
@@ -65,7 +77,11 @@ configure `correlated_paper_settings.m`, and run the entrypoint. The helper file
 `finalize_correlated_tables.m`, `repair_correlated_rmse.m`, `correlated_cvar_reference.m`,
 and `export_correlated_matlab_excel.m`. Parallel Computing Toolbox is optional.
 
-For the active rate plot, open the notebook with Python/Jupyter and run cells 1–2
-using matplotlib, SciPy and seaborn. Rates are fitted using natural
-logarithms of the budgets and RMSEs.
+Open the notebook with Python/Jupyter, using matplotlib, SciPy and seaborn.
+Set `CASE` in the first code cell and run both code cells. Available cases are
+`portfolio`, `nonconvex`, `correlated_exp`, `correlated_normal`, `queue_regen`,
+and `queue`; each selects the corresponding paper rate plot.
+The default `queue` case corresponds to Figure EC.6(b). Rates are fitted using
+natural logarithms of the budgets and RMSEs. Set `SAVE_FIGURE = True` to save the
+selected plot under `results/generated_rates/`.
 
