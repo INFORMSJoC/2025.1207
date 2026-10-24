@@ -1,12 +1,12 @@
 % Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
 % SPDX-License-Identifier: MIT
 
-%jinrong
+% Portfolio CVaR experiment.
 clear all;
 format long
 clc;
 namebiaohao=0;
-filename=['CVaR_SA_example_jinrong',num2str(namebiaohao),'_jiaqiao_duibi.xls'];
+filename=['portfolio_hu_comparison_',num2str(namebiaohao),'.xls'];
 tic;
 d=2;
 phi=0.95;

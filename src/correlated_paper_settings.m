@@ -2,8 +2,8 @@
 % SPDX-License-Identifier: MIT
 
 function cfg = correlated_paper_settings()
-% Paper: PDF pp.23,43-45 (EC.11-13), 2026-09-14T231419.819.
-% User decision: retain the ORIGINAL squared-normal, untruncated H model.
+% Configuration for the correlated-noise experiments.
+% Squared-Gaussian H recursion without truncation.
 cfg.d = 1;
 cfg.phi = 0.9; cfg.CIalpha = 0.05; cfg.CIscale = 1/sqrt(2);
 cfg.zcritical = 1.959963984540054; % Phi^(-1)(0.975)

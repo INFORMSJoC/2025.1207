@@ -2,7 +2,7 @@
 % SPDX-License-Identifier: MIT
 
 function Ref = correlated_cvar_reference(theta, phi, fenbumoshi, opts)
-%CORRELATED_CVAR_REFERENCE Independent reference for the ORIGINAL Z^2 model.
+%CORRELATED_CVAR_REFERENCE Independent reference for the squared-Gaussian H model.
 % X(theta)=((theta-1)^2+2)*Y+H, H_next=1+(1+Z^2)*H/3.
 % Y is Exp(1) (fenbumoshi=1) or N(0,1) (fenbumoshi=2); Z is N(0,1).
 % H has its stationary marginal and is independent of Y. No noise truncation.

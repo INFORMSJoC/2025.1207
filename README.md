@@ -35,30 +35,30 @@ The portfolio and lognormal scripts use a consistent `1/sqrt(2)` CI scale.
 
 | Paper item | MATLAB file in `src/` | TeX file in `results/tables/` |
 | --- | --- | --- |
-| Figure 1, Tables 1–2: portfolio | `CVaR_SA_duowei_jinrong.m` | `portfolio.tex`, `Coverage_portfolio.tex` |
-| Section 7.1: Hu comparison | `CVaR_SA_duowei_jinrong_jiaqiao_duibi.m` | — |
-| Table 3: SAA | `CVaR_SA_duowei_jinrong_SAA_duibi.m` | `SAA.tex` |
-| Figure EC.1, Table EC.1: multimodal | `CVaR_SA_nonconvex.m` | `nonconvex.tex` |
-| Figures EC.2–3, Tables EC.2–3: correlated noise | `CVaR_SA_duowei_ex5_correlated_noise.m` | `k_0.tex`, `Correlated_noise.tex` |
-| Figure EC.4, Tables EC.4/EC.6: lognormal | `CVaR_SA_tail_lognormal.m` | `lognormal1.tex`, `Coverage_lognormal.tex` |
-| Figure EC.5, Tables EC.5/EC.7: regenerative queue | `CVaR_SA_queue_correlated_case.m` | `queue_regen.tex`, `Coverage_queueing_regen.tex` |
-| Figure EC.6, Table EC.8: original queue | `CVaR_SA_duowei_queue.m` | `lognormal2.tex` |
-| Table EC.9: batching comparison | `CVaR_SA_tail_lognormal_batch_duibi.m` | `Coverage_batch.tex` |
+| Figure 1, Tables 1–2: portfolio | `run_portfolio_experiment.m` | `table_1_portfolio_estimation.tex`, `table_2_portfolio_ci_coverage.tex` |
+| Section 7.1: Hu comparison | `run_portfolio_hu_comparison.m` | — |
+| Table 3: SAA | `run_portfolio_saa_comparison.m` | `table_3_saa_relative_errors.tex` |
+| Figure EC.1, Table EC.1: multimodal | `run_multimodal_experiment.m` | `table_ec1_multimodal_estimation.tex` |
+| Figures EC.2–3, Tables EC.2–3: correlated noise | `run_correlated_noise_experiments.m` | `table_ec2_correlated_noise_autocorrelations.tex`, `table_ec3_correlated_noise_estimation.tex` |
+| Figure EC.4, Tables EC.4/EC.6: lognormal | `run_lognormal_experiment.m` | `table_ec4_lognormal_estimation.tex`, `table_ec6_lognormal_ci_coverage.tex` |
+| Figure EC.5, Tables EC.5/EC.7: regenerative queue | `run_regenerative_queue_experiment.m` | `table_ec5_regenerative_queue_estimation.tex`, `table_ec7_regenerative_queue_ci_coverage.tex` |
+| Figure EC.6, Table EC.8: original queue | `run_original_queue_experiment.m` | `table_ec8_original_queue_estimation.tex` |
+| Table EC.9: batching comparison | `run_lognormal_batching_comparison.m` | `table_ec9_batching_ci_coverage.tex` |
 
 `results/figures/` contains all 14 figure files used in the paper and its
 electronic companion:
 
 | Paper figure | Files in `results/figures/` |
 | --- | --- |
-| Figure 1: portfolio | `SA_jinrong.pdf`, `SA_jinrong_rate.png` |
-| Figure EC.1: multimodal | `SA_nonconvex.pdf`, `SA_nonconvex_rate.png` |
-| Figure EC.2: correlated noise trajectories | `SA_correlated_exp.pdf`, `SA_correlated_normal.pdf` |
-| Figure EC.3: correlated noise rates | `SA_correlated_rate_exp.png`, `SA_correlated_rate_normal.png` |
-| Figure EC.4: lognormal | `SA_lognormal.pdf`, `SA_lognormal_rate.png` |
-| Figure EC.5: regenerative queue | `SA_queue_correlated.pdf`, `SA_queue_correlated_rate.png` |
-| Figure EC.6: original queue | `SA_queue+CI.pdf`, `SA_queue_rate.png` |
+| Figure 1: portfolio | `figure_1a_portfolio_trajectories.pdf`, `figure_1b_portfolio_convergence_rates.png` |
+| Figure EC.1: multimodal | `figure_ec1a_multimodal_trajectories.pdf`, `figure_ec1b_multimodal_convergence_rates.png` |
+| Figure EC.2: correlated noise trajectories | `figure_ec2a_correlated_exponential_trajectories.pdf`, `figure_ec2b_correlated_normal_trajectories.pdf` |
+| Figure EC.3: correlated noise rates | `figure_ec3a_correlated_exponential_convergence_rates.png`, `figure_ec3b_correlated_normal_convergence_rates.png` |
+| Figure EC.4: lognormal | `figure_ec4a_lognormal_trajectories.pdf`, `figure_ec4b_lognormal_convergence_rates.png` |
+| Figure EC.5: regenerative queue | `figure_ec5a_regenerative_queue_trajectories.pdf`, `figure_ec5b_regenerative_queue_convergence_rates.png` |
+| Figure EC.6: original queue | `figure_ec6a_original_queue_trajectories.pdf`, `figure_ec6b_original_queue_convergence_rates.png` |
 
-The plotting notebook is [CVaR_SA_huatu.ipynb](<scripts/CVaR_SA_huatu.ipynb>).
+The plotting notebook is [plot_convergence_rates.ipynb](<scripts/plot_convergence_rates.ipynb>).
 The RMSE series for the notebook's six cases are also available in
 [convergence_rate_data.csv](results/rates/convergence_rate_data.csv), with columns
 `case`, `paper_figure`, `quantity`, `n` (budget), and `rmse` (unlogged values).
@@ -74,7 +74,7 @@ commented output blocks, then run that copy. For correlated noise, copy
 the entrypoint and its seven helper files together from `src/` to a working directory,
 configure `correlated_paper_settings.m`, and run the entrypoint. The helper files are
 `correlated_paper_settings.m`, `run_correlated_paper_tables.m`, `simulate_correlated_case.m`,
-`finalize_correlated_tables.m`, `repair_correlated_rmse.m`, `correlated_cvar_reference.m`,
+`finalize_correlated_tables.m`, `compute_correlated_rmse.m`, `correlated_cvar_reference.m`,
 and `export_correlated_matlab_excel.m`. Parallel Computing Toolbox is optional.
 
 Open the notebook with Python/Jupyter, using matplotlib, SciPy and seaborn.

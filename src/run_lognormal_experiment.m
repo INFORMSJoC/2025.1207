@@ -1,12 +1,12 @@
 % Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
 % SPDX-License-Identifier: MIT
 
-% %taillognormal
-%exp
+% Lognormal heavy-tail CVaR experiment.
+
 clear all;
 clc;
 namebiaohao=3553;
-filename=['CVaR_SA_tail_logn',num2str(namebiaohao),'.xls'];
+filename=['lognormal_results_',num2str(namebiaohao),'.xls'];
 tic;
 d=2;
 phi=0.95;
@@ -187,7 +187,7 @@ for N=[500000]%560,1000,4400,10000,44000,100000,500000
 %     plot(x,y,'-','color','#FF4500');
 %     legend('our algorithm','normal');
 %     rowName = ['A',num2str(1)];
-%     xlswrite(['CVaR_SA_example_lognormalCIN',num2str(namebiaohao),'-206.xls'],CIN,'sheet1',rowName);
+%     xlswrite(['lognormal_ci_statistics_',num2str(namebiaohao),'.xls'],CIN,'sheet1',rowName);
 
     Gcvrelatu=zeros(N+1,2);
     for n=1:(N+1)

@@ -2,7 +2,7 @@
 % SPDX-License-Identifier: MIT
 
 function results = finalize_correlated_tables(cfg,cases,outputDir)
-% Recalculate tables from saved paired endpoints, without rerunning SA.
+% Summarize the saved paired optimization endpoints.
 tag='CVaR_correlated_k0_2_R100_corrected';
 results=struct('cfg',cfg,'cases',cases,'repairs',{{}});
 payload=struct();
@@ -51,7 +51,7 @@ for dist=cfg.distributions
     opts=cfg.referenceOptions;
     opts.cacheFile=fullfile(outputDir,[tag '_reference_' name '.mat']);
     opts.stationaryCacheFile=fullfile(outputDir,[tag '_stationary_H_reference.mat']);
-    R=repair_correlated_rmse(theta,cv,Gcv,cfg.phi,dist,cvtrue,opts);
+    R=compute_correlated_rmse(theta,cv,Gcv,cfg.phi,dist,cvtrue,opts);
     results.repairs{dist}=R;
     summary=zeros(numel(metricNames),numel(ids));
     for j=1:numel(ids)

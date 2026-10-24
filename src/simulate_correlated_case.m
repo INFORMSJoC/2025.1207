@@ -4,12 +4,12 @@
 function result = simulate_correlated_case(cfg, N, seed)
 %SIMULATE_CORRELATED_CASE One scalar replication of correlated-noise CVaR SA.
 %   R = SIMULATE_CORRELATED_CASE(CFG,N,SEED) implements the recursions in
-%   CVaR_SA_duowei_ex5_correlated_noise.m without allocating trajectory arrays.
+%   run_correlated_noise_experiments.m without allocating trajectory arrays.
 %   N updates are performed, but the reported estimates use state N, after
-%   N-1 updates, exactly as the original post-processing did. R.nextState is
+%   N-1 updates. R.nextState is
 %   state N+1. R.H is H after N-1 updates; R.HLastGenerated is H after N.
 %
-%   Required CFG fields (same names as the original script):
+%   Required CFG fields:
 %     phi, CIalpha, fenbumoshi, k0, N1,
 %     alpha,beta,gamma,gammau,varphi,eta,varsigma,
 %     alphanc,betanc,gammanc,gammaunc,varphinc,etanc,cnc.
@@ -18,22 +18,22 @@ function result = simulate_correlated_case(cfg, N, seed)
 %     CIscale (1); use CIscale=1/sqrt(2) for the article's interval width.
 %     zcritical (computed from CIalpha if absent), a precomputed normal
 %     quantile; for CIalpha=.05 use 1.959963984540054.
-%   CFG.noiseModel, when specified, must be 'original_garch'; this retains
-%   the user's explicitly selected squared-Gaussian H recursion.
+%   CFG.noiseModel, when specified, must be 'original_garch', selecting
+%   the squared-Gaussian H recursion.
 %   Optional CFG.steps contains arrays alphan,betan,gamman,gammaun,
 %     varphin,etan,cn of length at least N, enabling reuse across replications.
 %   Optional CFG.randomInputs contains zH,direction,Y,Yplus,Yminus (length N)
-%     for deterministic equivalence testing. These are the ACTUAL innovations
-%     and actual distribution draws, not uniform transform inputs.
+%     for reproducible runs. Values are innovations
+%     and distribution draws, not uniform transform inputs.
 %   Optional CFG.captureTrace=true returns all states in R.trace, columns
 %     [theta,v,cv,cu,Gv,Gcv,H]. It is false in production to limit memory use.
 %
 %   Three independent Y draws are used at each iteration, including the plus
-%   and minus perturbations. Bulk random-number generation has the same law
-%   as the original draws, but is not intended to reproduce its RNG ordering.
+%   and minus perturbations.
+
 %   A private RandStream leaves the caller's RNG state unchanged.
-%   Confidence-interval variance and the absolute-value operation reproduce
-%   the original script; this function does not validate that variance model.
+%   Confidence intervals use the recursive variance estimate.
+
 
 timer = tic;
 validateattributes(N, {'numeric'}, {'scalar','integer','positive','finite'});
@@ -128,7 +128,7 @@ for n = 1:N
         terminal = [theta,v,cv,cu,Gv,Gcv,H];
     end
 
-    % Keep the original H update, including its operation order.
+    % Update the squared-Gaussian H recursion.
     un = H^(1/2)*zH(n);
     H = omega+betah*H+alphah*un^2;
     barcn = cn(n)/max([1,abs(Gv),abs(Gcv)]);

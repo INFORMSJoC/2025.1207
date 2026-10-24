@@ -2,9 +2,9 @@
 % SPDX-License-Identifier: MIT
 
 function results = run_correlated_paper_tables(cfg, outputDir)
-%RUN_CORRELATED_PAPER_TABLES Run all 8 cases, retaining paired endpoints.
+%RUN_CORRELATED_PAPER_TABLES Run all 8 cases with paired endpoints.
 % Each N column has 100 independent replications. N1 is the fixed maximum
-% budget, as in the supplied script. References use independent randomness.
+% budget. References use independent randomness.
 if ~isfolder(outputDir), mkdir(outputDir); end
 started = tic;
 tag = 'CVaR_correlated_k0_2_R100_corrected';
@@ -23,7 +23,7 @@ if isfield(cfg,'resume') && cfg.resume && isfile(checkpointPath)
             'Checkpoint settings differ: %s.',checkNames{z});
     end
 end
-% A previous complete run remains recoverable when this script is rerun.
+% Back up existing output files before starting a new run.
 if isfile(rawPath) && isempty(resume)
     backup = fullfile(outputDir,['backup_' tag '_' datestr(now,'yyyymmdd_HHMMSS')]);
     mkdir(backup);

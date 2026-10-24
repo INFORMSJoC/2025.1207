@@ -1,11 +1,11 @@
 % Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
 % SPDX-License-Identifier: MIT
 
-function R = repair_correlated_rmse(thetaguji,cvguji,Gcvguji,phi,fenbumoshi,cvtrue,opts)
-%REPAIR_CORRELATED_RMSE Repair moving-target CVaR and scaled-gradient RMSE.
+function R = compute_correlated_rmse(thetaguji,cvguji,Gcvguji,phi,fenbumoshi,cvtrue,opts)
+%COMPUTE_CORRELATED_RMSE Compute moving-target CVaR and scaled-gradient RMSE.
 % Rows are independent optimization repetitions; optional columns are budgets.
 % Paired theta, CVaR and gradient arrays must contain the same entries.
-% The optimization recursion is not rerun or changed by this function.
+% Uses stored optimization endpoints.
 % cvtrue is used ONLY for the separately labelled fixed-target ordinary RMSE.
 if nargin<7, opts=struct(); end
 validateattributes(thetaguji,{'numeric'},{'real','finite','nonempty'});

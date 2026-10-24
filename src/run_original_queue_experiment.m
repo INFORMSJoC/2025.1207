@@ -1,11 +1,11 @@
 % Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
 % SPDX-License-Identifier: MIT
 
-%queue
+% Queueing CVaR experiment.
 clear all;
 clc;
 namebiaohao=354;
-filename=['CVaR_SA_exampleq-2',num2str(namebiaohao),'.xls'];
+filename=['original_queue_results_',num2str(namebiaohao),'.xls'];
 scriptTimer=tic;
 d=4;
 phi=0.95;
@@ -61,7 +61,7 @@ vartrue=s_true*log(rho_true/(1-phi));
 cvtrue=s_true*(1+log(rho_true/(1-phi)));
 Gcvtrue=(1-phi)*dcvar_fun(s_true)*v';
 
-% 保留原投影区域，避免改变已有模拟路径
+
 UB=thetatrue+5;
 LB=thetatrue-5;
 
@@ -259,7 +259,7 @@ for N=[25000]%1000,2300,5000,10000,23000,25000
             CIguji(k,:)=[cvjihe(n)-CIwidthScale*norminv(1-CIalpha/2,0,1)*sqrt(gamman*(cujihe(n)-(cvjihe(n)*(1-phi))^2))/(1-phi),cvjihe(n)+CIwidthScale*norminv(1-CIalpha/2,0,1)*sqrt(gamman*(cujihe(n)-(cvjihe(n)*(1-phi))^2))/(1-phi)];
             CIN(k)=(cvjihe(n)-cvkkk)*(1-phi)/sqrt(gamman*(cujihe(n)-(cvjihe(n)*(1-phi))^2));
             runtime_seconds(k)=toc(repeatTimer);
-            fprintf('[CVaR_SA_duowei_queue] N=%d repeat=%d/%d runtime_seconds=%.6f\n',N,k,xunhuancishu,runtime_seconds(k));
+            fprintf('[run_original_queue_experiment] N=%d repeat=%d/%d runtime_seconds=%.6f\n',N,k,xunhuancishu,runtime_seconds(k));
         end
     total_runtime_seconds=toc(nTimer);
     disp('meantheta');
@@ -351,10 +351,10 @@ for N=[25000]%1000,2300,5000,10000,23000,25000
 %     xlswrite(filename,std(CIguji,1)','sheet1',rowName);
 %     rowNum=rowNum+1;
 %     rowNum=rowNum+1;
-%     % 计时单位为秒；原 sheet1 的结果位置保持不变。
+
 %     if colNum==1
 %         xlswrite(filename,{'N','Repeat_count','Total_seconds','Mean_seconds','Std_seconds'},'Runtime_seconds','A1');
-%         xlswrite(filename,{'单位：秒；Total_seconds 为该 N 的100次循环及初始化耗时，不含 Excel 导出。'},'Runtime_seconds','A9');
+%         xlswrite(filename,{'Units: seconds; Total_seconds includes all replications and initialization for this N, excluding Excel export.'},'Runtime_seconds','A9');
 %         xlswrite(filename,{'N','Repeat','Runtime_seconds'},'Runtime_seconds','A10');
 %     end
 %     xlswrite(filename,[N,xunhuancishu,total_runtime_seconds,mean(runtime_seconds),std(runtime_seconds,1)], ...

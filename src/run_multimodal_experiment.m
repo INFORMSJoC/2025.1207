@@ -1,14 +1,14 @@
 % Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
 % SPDX-License-Identifier: MIT
 
-%example5
-%exp
+% Multimodal CVaR experiment.
+
 clear all;
 clc;
 % parpool(32);
 namebiaohao=400.2;
-filename=['CVaR_SA_example2',num2str(namebiaohao),'-206.xls'];
-fileCIN=['CVaR_SA_example2CIN',num2str(namebiaohao),'-206.xls'];
+filename=['multimodal_results_',num2str(namebiaohao),'.xls'];
+fileCIN=['multimodal_ci_statistics_',num2str(namebiaohao),'.xls'];
 tic;
 d=2;
 phi=0.9;
