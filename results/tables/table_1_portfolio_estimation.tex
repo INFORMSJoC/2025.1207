@@ -1,0 +1,24 @@
+% Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
+% SPDX-License-Identifier: MIT
+
+\begin{table}[]
+\TABLE
+{Descriptive statistics for proposed estimators (portfolio example).\label{tab.portfolio}}{
+\begin{tabular}{clccc}\toprule
+\multicolumn{1}{l}{} & $\#$ of simulation & \multirow{2}{*}{$10^3$} & \multirow{2}{*}{$10^4$} & \multirow{2}{*}{$10^5$} \\
+\multicolumn{1}{l}{} & evaluations &  &  &  \\\hline
+\multirow{5}{*}{$\theta_n$} & \multirow{2}{*}{Mean (SD)} & 0.8634(0.4263) & 0.8205(0.0219) & 0.8223(0.0071) \\
+ &  & 0.7214(0.5045) & 0.8972(0.0390) & 0.8938(0.0102) \\
+ & \multirow{2}{*}{Relative Error} & 0.0495 & -0.0028 & -0.0005 \\
+ &  & -0.1962 & -0.0003 & -0.0041 \\
+ & RMSE & 0.6848 & 0.0448 & 0.0130 \\\hline
+\multirow{5}{*}{$\fc_n$} & Mean (SD) & 9.4575(1.3643) & 1.5357(0.2300) & 1.7185(0.0298) \\
+ & Relative Error & 4.5218 & -0.1034 & 0.0033 \\
+ & pseudo RMSE & 5.8324 & 0.3234 & 0.0298 \\
+ & LB of CI (SD) & 8.3337(1.2874) & 1.3057(0.2149) & 1.6175(0.0289) \\
+ & UB of CI (SD) & 10.5812(1.4413) & 1.7657(0.2451) & 1.8194(0.0306) \\\hline
+\multirow{3}{*}{$G_{cv,n}$} & \multirow{2}{*}{Mean (SD)} & -0.8568(31.9029) & 0.0353(0.4165) & 0.0059(0.1949) \\
+ &  & 150.3(1715) & -0.0460(0.4768) & 0.0137(0.2047) \\
+ & pseudo RMSE & 1721 & 0.6271 & 0.2883 \\\bottomrule
+\end{tabular}}{}
+\end{table}

@@ -1,0 +1,41 @@
+% Copyright (c) 2026 Qixin Wang, Hao Cao, and Jian-Qiang Hu
+% SPDX-License-Identifier: MIT
+
+\begin{table}[]
+\TABLE
+{Descriptive statistics for proposed estimators (correlated noise).\label{tab.corr}}{
+\begin{minipage}[t]{0.48\textwidth}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{clcccc}\toprule
+\multicolumn{1}{l}{$Y$ is exponential} & $\#$ of simulation & \multirow{2}{*}{$10^3$} & \multirow{2}{*}{$10^4$} & \multirow{2}{*}{$10^5$} & \multirow{2}{*}{$10^6$} \\
+\multicolumn{1}{l}{} & evaluations &  &  &  &  \\\hline
+\multirow{3}{*}{$\theta_n$} & Mean (SD) & 0.0000(0.0000) & 0.9971(0.2354) & 0.9947(0.0289) & 1.0007(0.0111) \\
+ & Relative Error & -1.0000 & -0.0029 & -0.0053 & 0.0007 \\
+ & RMSE & 1.0000 & 0.2355 & 0.0294 & 0.0111 \\\hline
+\multirow{5}{*}{$\fc_n$} & Mean (SD) & 1.8502(0.0297) & 4.5332(0.1406) & 9.7643(0.1223) & 11.6432(0.0889) \\
+ & Relative Error & -0.8406 & -0.6095 & -0.1589 & 0.0030 \\
+ & pseudo RMSE & 12.5657	& 7.2967	& 1.8824	& 0.0782 \\
+ & LB of CI (SD) & 1.7686(0.0274) & 4.3917(0.1325) & 9.5508(0.1091) & 11.4703(0.0791) \\
+ & UB of CI (SD) & 1.9317(0.0322) & 4.6747(0.1496) & 9.9778(0.1472) & 11.8161(0.1034) \\\hline
+\multirow{2}{*}{$G_{\fc,n}$} & Mean (SD) & 0.6709(0.0367) & -0.0386(0.0892) & -0.0007(0.0378) & -0.0038(0.0289) \\
+ & pseudo RMSE & 1.2474	& 0.1364	& 0.0390	& 0.0263 \\\bottomrule
+\end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{clcccc}\toprule
+\multicolumn{1}{l}{$Y$ is normal}& $\#$ of simulation & \multirow{2}{*}{$10^3$} & \multirow{2}{*}{$10^4$} & \multirow{2}{*}{$10^5$} & \multirow{2}{*}{$10^6$} \\
+\multicolumn{1}{l}{} & evaluations &  &  &  &  \\\hline
+\multirow{3}{*}{$\theta_n$} & Mean (SD) & 0.0000(0.0000) & 0.0219(0.0429) & 0.9890(0.0308) & 0.9983(0.0114) \\
+ & Relative Error & -1.0000 & -0.9781 & -0.0110 & -0.0017 \\
+ & RMSE & 1.0000 & 0.9791 & 0.0327 & 0.0115 \\\hline
+\multirow{5}{*}{$\fc_n$} & Mean (SD) & 1.4562(0.0280) & 3.3799(0.0682) & 7.4548(0.0881) & 8.9320(0.0908) \\
+ & Relative Error & -0.8360 & -0.6194 & -0.1605 & 0.0058 \\
+ & pseudo RMSE & 8.6654	& 6.6663	& 1.4807	& 0.0647 \\
+ & LB of CI (SD) & 1.3898(0.0252) & 3.2705(0.0628) & 7.2787(0.0804) & 8.7862(0.0818) \\
+ & UB of CI (SD) & 1.5227(0.0310) & 3.4893(0.0740) & 7.6310(0.0969) & 9.0778(0.1020) \\\hline
+\multirow{2}{*}{$G_{\fc,n}$} & Mean (SD) & 0.8134(0.0261) & -0.0023(0.0618) & -0.0035(0.0230) & -0.0014(0.0145) \\
+ & pseudo RMSE & 1.0728	& 0.2664	& 0.0188	& 0.0168\\\bottomrule
+\end{tabular}}
+\end{minipage}}{}
+\end{table}
